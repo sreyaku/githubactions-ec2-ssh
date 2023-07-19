@@ -19,4 +19,4 @@ jobs:
 
     - name: SSH into EC2 and print Hello World
       run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@3.208.21.163 "echo 'Hello, world!'"
+        ssh -o StrictHostKeyChecking=no ec2-user@3.208.21.163 "echo 'Hello, world!!!!!!'"
