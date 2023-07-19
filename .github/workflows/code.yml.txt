@@ -1,0 +1,22 @@
+name: SSH into EC2 and Print Hello World
+
+on:
+  push: {} # You can adjust the trigger event as per your requirements
+
+jobs:
+  ssh_to_ec2:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH keys
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+
+    - name: SSH into EC2 and print Hello World
+      run: |
+        ssh -o StrictHostKeyChecking=no ec2-user@3.208.21.163 "echo 'Hello, world!'"
